@@ -57,7 +57,7 @@ int menu_select(){
 	printf("  1.添加客户信息 \n");
 	printf("  2.按金额排序列出所有房屋信息 \n");
 	printf("  3.按金额排序列出所有客户信息 \n");
-	printf("  4.具体查询合同信息 \n");
+	printf("  4.查询合同信息 \n");
 	printf("  5.退出 \n");
 	do{
 		printf("\n 请选择(0~5):");
