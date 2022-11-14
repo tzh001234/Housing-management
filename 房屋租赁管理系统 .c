@@ -52,7 +52,7 @@ int menu_select(){
 	int i; char s[3];
 	printf("\n 欢迎使用，请按任意键继续......\n\n ");
 	getch();
-	printf("           * 房屋租赁管理系统*                 \n\n");
+	printf("           *房屋租赁管理系统*                 \n\n");
 	printf("  0.添加房屋信息 \n");
 	printf("  1.添加客户信息 \n");
 	printf("  2.按金额排序列出所有房屋信息 \n");
@@ -79,7 +79,7 @@ void swapc(struct custom *a,struct custom *b){
 
 void searchb(){
 	int i,b;
-	fpb=fopen("build.c","r"); /*从文件中取出文件信息放到buildings 数组里 */
+	fpb=fopen("build.c","r"); //从文件中取出文件信息放到buildings数组里
 	for(i=0;i<size;i++)
 	fread(&buildings[i],sizeof(struct building),1,fpb);
 	fclose(fpb);
