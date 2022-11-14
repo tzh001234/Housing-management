@@ -3,10 +3,10 @@
 #include<string.h>
 #include<ctype.h>
 #include<conio.h>
-#define size 3
+#define size 2
 
 struct building{      //房屋信息 
-	int state; 	      //状态：出售，出租，已出售或已出租
+	int state; 		  //状态：出售，出租，已出售或已出租
 	long money; 	  //价格
 	char owner[30];   //姓名 
 	char address[50]; //地址
@@ -50,7 +50,7 @@ main(){
 
 int menu_select(){
 	int i; char s[3];
-	printf("\n 欢迎使用，请按任意键继续......\n\n");
+	printf("\n 欢迎使用，请按任意键继续......\n\n ");
 	getch();
 	printf("           * 房屋租赁管理系统*                 \n\n");
 	printf("  0.添加房屋信息 \n");
@@ -131,20 +131,20 @@ void search(){
 
 void inputbuilding(){
 	int i;int a;long d;
-	printf(" 请输入房屋信息\n");
+	printf("\n 请输入房屋信息\n");
 	for(i=0;i<size;i++){
-		printf(" 请输入第 %d 个信息\n",i+1);
-		printf(" 请输入房屋状态:\n 1 出售\n 2 出租\n 3 已出售\n 4 已出租\n");
+		printf("\n 请输入第 %d 个房屋信息\n",i+1);
+		printf("\n 1 出售\n 2 出租\n 3 已出售\n 4 已出租\n\n 请输入房屋状态:");
 		scanf("%d",&a);
 		buildings[i].state=a;
 		
-		printf("\n 请输入房屋的所有人姓名\n");
+		printf("\n 请输入房屋的所有人姓名：");
 		scanf("%s",&buildings[i].owner);
-		printf("\n 请输入房屋的地址\n");
+		printf("\n 请输入房屋的地址：");
 		scanf("%s",&buildings[i].address);
-		printf("\n 请输入房屋的合同编号\n");
+		printf("\n 请输入房屋的合同编号：");
 		scanf("%d",&buildings[i].nums);
-		printf(" 请输入对应的金额（出售价或出租价）\n");
+		printf("\n 请输入对应的金额（出售价或出租价）：");
 		
 		scanf("%ld",&d);
 		buildings[i].money=d;
@@ -188,19 +188,19 @@ void listbuilding(){
 
 void inputcustom(){
 	int i;int a;long d;
-	printf(" 请输入客户信息\n");
+	printf("\n 请输入客户信息\n");
 	for(i=0;i<size;i++){
-		printf(" 请输入第 %d 个客户\n",i+1);
-		printf(" 请输入客户状态:\n 1 希望购房\n 2 希望租房\n 3已经在本公司完成购房\n 4已经在本公司完成租房\n");
+		printf("\n 请输入第 %d 个客户\n",i+1);
+		printf("\n 1 希望购房\n 2 希望租房\n 3已经完成购房\n 4已经完成租房\n\n 请输入客户状态:");
 		scanf("%d",&a);
 		customs[i].state=a;
-		printf("\n 请输入客户姓名\n");
+		printf("\n 请输入客户姓名:");
 		scanf("%s",&customs[i].name);
-		printf("\n 请输入客户业务合同编号\n");
+		printf("\n 请输入客户业务合同编号:");
 		scanf("%d",&customs[i].num);
-		printf("\n 请输入备注\n");
+		printf("\n 请输入备注:");
 		scanf("%s",&customs[i].ps);
-		printf(" 请输入对应的金额（购房或租房价格）\n");
+		printf("\n 请输入对应的金额（购房或租房价格）:");
 		scanf("%ld",&d);
 		customs[i].price=d;
 	}
