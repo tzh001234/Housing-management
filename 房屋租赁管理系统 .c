@@ -91,9 +91,9 @@ void searchb(){
 			printf(" 金额:%ld ",buildings[i].money);
 			printf(" 所有人: ");puts(buildings[i].owner);
 			printf(" 地址店面等其他信息: ");puts(buildings[i].address);
-			if(buildings[i].state==1) printf(" 状态: 卖房\n");
-			if(buildings[i].state==2) printf(" 状态: 出租房\n");
-			if(buildings[i].state==3) printf(" 状态: 已卖\n");
+			if(buildings[i].state==1) printf(" 状态: 出售\n");
+			if(buildings[i].state==2) printf(" 状态: 出租\n");
+			if(buildings[i].state==3) printf(" 状态: 已售\n");
 			if(buildings[i].state==4) printf(" 状态: 已出租\n");
 		}
 	}
@@ -134,7 +134,7 @@ void inputbuilding(){
 	printf("\n 请输入房屋信息\n");
 	for(i=0;i<size;i++){
 		printf("\n 请输入第 %d 个房屋信息\n",i+1);
-		printf("\n 1 出售\n 2 出租\n 3 已出售\n 4 已出租\n\n 请输入房屋状态:");
+		printf("\n 1 出售\n 2 出租\n 3 已售\n 4 已出租\n\n 请输入房屋状态:");
 		scanf("%d",&a);
 		buildings[i].state=a;
 		
@@ -144,7 +144,7 @@ void inputbuilding(){
 		scanf("%s",&buildings[i].address);
 		printf("\n 请输入房屋的合同编号：");
 		scanf("%d",&buildings[i].nums);
-		printf("\n 请输入对应的金额（出售价或出租价）：");
+		printf("\n 请输入价格：");
 		
 		scanf("%ld",&d);
 		buildings[i].money=d;
@@ -200,7 +200,7 @@ void inputcustom(){
 		scanf("%d",&customs[i].num);
 		printf("\n 请输入备注:");
 		scanf("%s",&customs[i].ps);
-		printf("\n 请输入对应的金额（购房或租房价格）:");
+		printf("\n 请输入价格:");
 		scanf("%ld",&d);
 		customs[i].price=d;
 	}
