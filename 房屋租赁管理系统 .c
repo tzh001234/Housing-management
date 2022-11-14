@@ -159,10 +159,10 @@ void listbuilding(){
 	int i,j;long mon[size];
 	int ii;long ll;char aa[30];char bb[50];
 	struct building *p1;struct building *p2;
-	fpb=fopen("build.c","r"); /*从文件中取出文件信息放到buildings 数组里 */
+	fpb=fopen("build.c","r"); //从文件中取出文件信息放到buildings 数组里 
 	for(i=0;i<size;i++)
 	fread(&buildings[i],sizeof(struct building),1,fpb);
-	fclose(fpb); /*从文件中取出文件信息放到buildings 数组里 */
+	fclose(fpb); //从文件中取出文件信息放到buildings 数组里
 	
 	for(i=0;i<size;i++)
 	for(j=0;j<size-i;j++)
