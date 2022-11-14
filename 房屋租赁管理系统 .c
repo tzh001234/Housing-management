@@ -5,29 +5,29 @@
 #include<conio.h>
 #define size 2
 
-struct building{      //·¿ÎİĞÅÏ¢ 
-	int state; 		  //×´Ì¬£º³öÊÛ£¬³ö×â£¬ÒÑ³öÊÛ»òÒÑ³ö×â
-	long money; 	  //¼Û¸ñ
-	char owner[30];   //ĞÕÃû 
-	char address[50]; //µØÖ·
-	int nums;	      //±àºÅ
+struct building{          //æˆ¿å±‹ä¿¡æ¯ 
+	int state; 	  //çŠ¶æ€ï¼šå‡ºå”®ï¼Œå‡ºç§Ÿï¼Œå·²å‡ºå”®æˆ–å·²å‡ºç§Ÿ
+	long money; 	  //ä»·æ ¼
+	char owner[30];   //å§“å 
+	char address[50]; //åœ°å€
+	int nums;	  //ç¼–å·
 }buildings[size]; 
 
-struct custom{     //¿Í»§ĞÅÏ¢ 
-	char name[30]; //ĞÕÃû 
-	char ps[50];   //±¸×¢ 
-	long price;    //Ä¿±ê¼ÛÎ» 
-	int state;     //×´Ì¬£ºÏëÂò·¿£¬Ïë×â·¿£¬ÒÑÂò·¿»òÒÑ×â·¿
-	int num;       //±àºÅ
+struct custom{         //å®¢æˆ·ä¿¡æ¯ 
+	char name[30]; //å§“å 
+	char ps[50];   //å¤‡æ³¨ 
+	long price;    //ç›®æ ‡ä»·ä½ 
+	int state;     //çŠ¶æ€ï¼šæƒ³ä¹°æˆ¿ï¼Œæƒ³ç§Ÿæˆ¿ï¼Œå·²ä¹°æˆ¿æˆ–å·²ç§Ÿæˆ¿
+	int num;       //ç¼–å·
 }customs[size];
 
-FILE *fpb;   //ÎÄ¼şÖ¸Õë
+FILE *fpb;   //æ–‡ä»¶æŒ‡é’ˆ
 FILE *fpc;
-int menu_select();    //½çÃæº¯Êı
-void inputbuilding(); //ÊäÈë·¿ÎİĞÅÏ¢
-void inputcustom();   //ÊäÈë¿Í»§ĞÅÏ¢
-void listbuilding();  //°´ÕÕ½ğ¶î´Ó´óµ½Ğ¡ÅÅÁĞ·¿ÎİĞÅÏ¢
-void listcustom();    //°´ÕÕ½ğ¶î´Ó´óµ½Ğ¡ÅÅÁĞ¿Í»§ĞÅÏ¢
+int menu_select();    //ç•Œé¢å‡½æ•°
+void inputbuilding(); //è¾“å…¥æˆ¿å±‹ä¿¡æ¯
+void inputcustom();   //è¾“å…¥å®¢æˆ·ä¿¡æ¯
+void listbuilding();  //æŒ‰ç…§é‡‘é¢ä»å¤§åˆ°å°æ’åˆ—æˆ¿å±‹ä¿¡æ¯
+void listcustom();    //æŒ‰ç…§é‡‘é¢ä»å¤§åˆ°å°æ’åˆ—å®¢æˆ·ä¿¡æ¯
 void search();
 
 main(){
@@ -50,17 +50,17 @@ main(){
 
 int menu_select(){
 	int i; char s[3];
-	printf("\n »¶Ó­Ê¹ÓÃ£¬Çë°´ÈÎÒâ¼ü¼ÌĞø......\n\n ");
+	printf("\n æ¬¢è¿ä½¿ç”¨ï¼Œè¯·æŒ‰ä»»æ„é”®ç»§ç»­......\n\n ");
 	getch();
-	printf("           * ·¿Îİ×âÁŞ¹ÜÀíÏµÍ³*                 \n\n");
-	printf("  0.Ìí¼Ó·¿ÎİĞÅÏ¢ \n");
-	printf("  1.Ìí¼Ó¿Í»§ĞÅÏ¢ \n");
-	printf("  2.°´½ğ¶îÅÅĞòÁĞ³öËùÓĞ·¿ÎİĞÅÏ¢ \n");
-	printf("  3.°´½ğ¶îÅÅĞòÁĞ³öËùÓĞ¿Í»§ĞÅÏ¢ \n");
-	printf("  4.¾ßÌå²éÑ¯ºÏÍ¬ĞÅÏ¢ \n");
-	printf("  5.ÍË³ö \n");
+	printf("           * æˆ¿å±‹ç§Ÿèµç®¡ç†ç³»ç»Ÿ*                 \n\n");
+	printf("  0.æ·»åŠ æˆ¿å±‹ä¿¡æ¯ \n");
+	printf("  1.æ·»åŠ å®¢æˆ·ä¿¡æ¯ \n");
+	printf("  2.æŒ‰é‡‘é¢æ’åºåˆ—å‡ºæ‰€æœ‰æˆ¿å±‹ä¿¡æ¯ \n");
+	printf("  3.æŒ‰é‡‘é¢æ’åºåˆ—å‡ºæ‰€æœ‰å®¢æˆ·ä¿¡æ¯ \n");
+	printf("  4.å…·ä½“æŸ¥è¯¢åˆåŒä¿¡æ¯ \n");
+	printf("  5.é€€å‡º \n");
 	do{
-		printf("\n ÇëÑ¡Ôñ(0~5):");
+		printf("\n è¯·é€‰æ‹©(0~5):");
 		scanf("%s",&s);
 		i=atoi(s);
 	}
@@ -79,22 +79,22 @@ void swapc(struct custom *a,struct custom *b){
 
 void searchb(){
 	int i,b;
-	fpb=fopen("build.c","r"); /*´ÓÎÄ¼şÖĞÈ¡³öÎÄ¼şĞÅÏ¢·Åµ½buildings Êı×éÀï */
+	fpb=fopen("build.c","r"); /*ä»æ–‡ä»¶ä¸­å–å‡ºæ–‡ä»¶ä¿¡æ¯æ”¾åˆ°buildings æ•°ç»„é‡Œ */
 	for(i=0;i<size;i++)
 	fread(&buildings[i],sizeof(struct building),1,fpb);
 	fclose(fpb);
-	printf(" ÇëÊäÈëºÏÍ¬ºÅ£º");
+	printf(" è¯·è¾“å…¥åˆåŒå·ï¼š");
 	scanf("%d",&b);
 	for(i=0;i<size;i++){
 		if(buildings[i].nums==b) {
-			printf(" ºÏÍ¬±àºÅ£º%d",buildings[i].nums);
-			printf(" ½ğ¶î:%ld ",buildings[i].money);
-			printf(" ËùÓĞÈË: ");puts(buildings[i].owner);
-			printf(" µØÖ·µêÃæµÈÆäËûĞÅÏ¢: ");puts(buildings[i].address);
-			if(buildings[i].state==1) printf(" ×´Ì¬: Âô·¿\n");
-			if(buildings[i].state==2) printf(" ×´Ì¬: ³ö×â·¿\n");
-			if(buildings[i].state==3) printf(" ×´Ì¬: ÒÑÂô\n");
-			if(buildings[i].state==4) printf(" ×´Ì¬: ÒÑ³ö×â\n");
+			printf(" åˆåŒç¼–å·ï¼š%d",buildings[i].nums);
+			printf(" é‡‘é¢:%ld ",buildings[i].money);
+			printf(" æ‰€æœ‰äºº: ");puts(buildings[i].owner);
+			printf(" åœ°å€åº—é¢ç­‰å…¶ä»–ä¿¡æ¯: ");puts(buildings[i].address);
+			if(buildings[i].state==1) printf(" çŠ¶æ€: å–æˆ¿\n");
+			if(buildings[i].state==2) printf(" çŠ¶æ€: å‡ºç§Ÿæˆ¿\n");
+			if(buildings[i].state==3) printf(" çŠ¶æ€: å·²å–\n");
+			if(buildings[i].state==4) printf(" çŠ¶æ€: å·²å‡ºç§Ÿ\n");
 		}
 	}
 }
@@ -105,25 +105,25 @@ void searchc(){
 	for(i=0;i<size;i++)
 	fread(&customs[i],sizeof(struct custom),1,fpb);
 	fclose(fpc);
-	printf(" ÇëÊäÈëºÏÍ¬ºÅ£º");
+	printf(" è¯·è¾“å…¥åˆåŒå·ï¼š");
 	scanf("%d",&b);
 	for(i=0;i<size;i++){
 		if(buildings[i].nums==b){
-			printf(" ºÏÍ¬±àºÅ£º%d",customs[i].num);
-			printf(" ½ğ¶î:%ld ",customs[i].price);
-			printf(" ĞÕÃû: \n");puts(customs[i].name);
-			printf(" ¿Í»§ÆäËûĞÅÏ¢: ");puts(customs[i].ps);
-			if(customs[i].state==1) printf(" ×´Ì¬: Ï£Íû¹º·¿\n");
-			if(customs[i].state==2) printf(" ×´Ì¬: Ï£Íû×â·¿\n");
-			if(buildings[i].state==3) printf(" ×´Ì¬: ÒÑ¹º·¿\n");
-			if(buildings[i].state==4) printf(" ×´Ì¬: ÒÑ×â·¿\n");
+			printf(" åˆåŒç¼–å·ï¼š%d",customs[i].num);
+			printf(" é‡‘é¢:%ld ",customs[i].price);
+			printf(" å§“å: \n");puts(customs[i].name);
+			printf(" å®¢æˆ·å…¶ä»–ä¿¡æ¯: ");puts(customs[i].ps);
+			if(customs[i].state==1) printf(" çŠ¶æ€: å¸Œæœ›è´­æˆ¿\n");
+			if(customs[i].state==2) printf(" çŠ¶æ€: å¸Œæœ›ç§Ÿæˆ¿\n");
+			if(buildings[i].state==3) printf(" çŠ¶æ€: å·²è´­æˆ¿\n");
+			if(buildings[i].state==4) printf(" çŠ¶æ€: å·²ç§Ÿæˆ¿\n");
 		}
 	}
 }
 
 void search(){
 	int a;
-	printf("\n1 ·¿ÎİºÏÍ¬²éÑ¯\n2¿Í»§ºÏÍ¬²éÑ¯\nÇëÑ¡Ôñ£º");
+	printf("\n1 æˆ¿å±‹åˆåŒæŸ¥è¯¢\n2å®¢æˆ·åˆåŒæŸ¥è¯¢\nè¯·é€‰æ‹©ï¼š");
 	scanf("%d",&a);
 	if(a==1) searchb();
 	if(a==2) searchc();
@@ -131,38 +131,38 @@ void search(){
 
 void inputbuilding(){
 	int i;int a;long d;
-	printf("\n ÇëÊäÈë·¿ÎİĞÅÏ¢\n");
+	printf("\n è¯·è¾“å…¥æˆ¿å±‹ä¿¡æ¯\n");
 	for(i=0;i<size;i++){
-		printf("\n ÇëÊäÈëµÚ %d ¸ö·¿ÎİĞÅÏ¢\n",i+1);
-		printf("\n 1 ³öÊÛ\n 2 ³ö×â\n 3 ÒÑ³öÊÛ\n 4 ÒÑ³ö×â\n\n ÇëÊäÈë·¿Îİ×´Ì¬:");
+		printf("\n è¯·è¾“å…¥ç¬¬ %d ä¸ªæˆ¿å±‹ä¿¡æ¯\n",i+1);
+		printf("\n 1 å‡ºå”®\n 2 å‡ºç§Ÿ\n 3 å·²å‡ºå”®\n 4 å·²å‡ºç§Ÿ\n\n è¯·è¾“å…¥æˆ¿å±‹çŠ¶æ€:");
 		scanf("%d",&a);
 		buildings[i].state=a;
 		
-		printf("\n ÇëÊäÈë·¿ÎİµÄËùÓĞÈËĞÕÃû£º");
+		printf("\n è¯·è¾“å…¥æˆ¿å±‹çš„æ‰€æœ‰äººå§“åï¼š");
 		scanf("%s",&buildings[i].owner);
-		printf("\n ÇëÊäÈë·¿ÎİµÄµØÖ·£º");
+		printf("\n è¯·è¾“å…¥æˆ¿å±‹çš„åœ°å€ï¼š");
 		scanf("%s",&buildings[i].address);
-		printf("\n ÇëÊäÈë·¿ÎİµÄºÏÍ¬±àºÅ£º");
+		printf("\n è¯·è¾“å…¥æˆ¿å±‹çš„åˆåŒç¼–å·ï¼š");
 		scanf("%d",&buildings[i].nums);
-		printf("\n ÇëÊäÈë¶ÔÓ¦µÄ½ğ¶î£¨³öÊÛ¼Û»ò³ö×â¼Û£©£º");
+		printf("\n è¯·è¾“å…¥å¯¹åº”çš„é‡‘é¢ï¼ˆå‡ºå”®ä»·æˆ–å‡ºç§Ÿä»·ï¼‰ï¼š");
 		
 		scanf("%ld",&d);
 		buildings[i].money=d;
 	}
-	fpb=fopen("build.c","w"); //ÊäÈëµ½ÎÄ¼ş
+	fpb=fopen("build.c","w"); //è¾“å…¥åˆ°æ–‡ä»¶
 	for(i=0;i<size;i++)
 	fwrite(&buildings[i],sizeof(struct building),1,fpb);
-	fclose(fpb); //ÊäÈëµ½ÎÄ¼ş
+	fclose(fpb); //è¾“å…¥åˆ°æ–‡ä»¶
 }
 
 void listbuilding(){
 	int i,j;long mon[size];
 	int ii;long ll;char aa[30];char bb[50];
 	struct building *p1;struct building *p2;
-	fpb=fopen("build.c","r"); /*´ÓÎÄ¼şÖĞÈ¡³öÎÄ¼şĞÅÏ¢·Åµ½buildings Êı×éÀï */
+	fpb=fopen("build.c","r"); /*ä»æ–‡ä»¶ä¸­å–å‡ºæ–‡ä»¶ä¿¡æ¯æ”¾åˆ°buildings æ•°ç»„é‡Œ */
 	for(i=0;i<size;i++)
 	fread(&buildings[i],sizeof(struct building),1,fpb);
-	fclose(fpb); /*´ÓÎÄ¼şÖĞÈ¡³öÎÄ¼şĞÅÏ¢·Åµ½buildings Êı×éÀï */
+	fclose(fpb); /*ä»æ–‡ä»¶ä¸­å–å‡ºæ–‡ä»¶ä¿¡æ¯æ”¾åˆ°buildings æ•°ç»„é‡Œ */
 	
 	for(i=0;i<size;i++)
 	for(j=0;j<size-i;j++)
@@ -175,32 +175,32 @@ void listbuilding(){
 	}
 	
 	for(j=0;j<size;j++){
-		printf(" ºÏÍ¬±àºÅ£º%d",buildings[j].nums);
-		printf(" ½ğ¶î:%ld ",buildings[j].money);
-		printf(" ËùÓĞÈË: ");puts(buildings[j].owner);
-		printf(" µØÖ·µêÃæµÈÆäËûĞÅÏ¢: ");puts(buildings[j].address);
-		if(buildings[j].state==1) printf(" ×´Ì¬: Âô·¿\n\n");
-		if(buildings[j].state==2) printf(" ×´Ì¬: ³ö×â·¿\n\n");
-		if(buildings[j].state==3) printf(" ×´Ì¬: ÒÑÂô\n\n");
-		if(buildings[j].state==4) printf(" ×´Ì¬: ÒÑ³ö×â\n\n");
+		printf(" åˆåŒç¼–å·ï¼š%d",buildings[j].nums);
+		printf(" é‡‘é¢:%ld ",buildings[j].money);
+		printf(" æ‰€æœ‰äºº: ");puts(buildings[j].owner);
+		printf(" åœ°å€åº—é¢ç­‰å…¶ä»–ä¿¡æ¯: ");puts(buildings[j].address);
+		if(buildings[j].state==1) printf(" çŠ¶æ€: å–æˆ¿\n\n");
+		if(buildings[j].state==2) printf(" çŠ¶æ€: å‡ºç§Ÿæˆ¿\n\n");
+		if(buildings[j].state==3) printf(" çŠ¶æ€: å·²å–\n\n");
+		if(buildings[j].state==4) printf(" çŠ¶æ€: å·²å‡ºç§Ÿ\n\n");
 	}
 }
 
 void inputcustom(){
 	int i;int a;long d;
-	printf("\n ÇëÊäÈë¿Í»§ĞÅÏ¢\n");
+	printf("\n è¯·è¾“å…¥å®¢æˆ·ä¿¡æ¯\n");
 	for(i=0;i<size;i++){
-		printf("\n ÇëÊäÈëµÚ %d ¸ö¿Í»§\n",i+1);
-		printf("\n 1 Ï£Íû¹º·¿\n 2 Ï£Íû×â·¿\n 3ÒÑ¾­Íê³É¹º·¿\n 4ÒÑ¾­Íê³É×â·¿\n\n ÇëÊäÈë¿Í»§×´Ì¬:");
+		printf("\n è¯·è¾“å…¥ç¬¬ %d ä¸ªå®¢æˆ·\n",i+1);
+		printf("\n 1 å¸Œæœ›è´­æˆ¿\n 2 å¸Œæœ›ç§Ÿæˆ¿\n 3å·²ç»å®Œæˆè´­æˆ¿\n 4å·²ç»å®Œæˆç§Ÿæˆ¿\n\n è¯·è¾“å…¥å®¢æˆ·çŠ¶æ€:");
 		scanf("%d",&a);
 		customs[i].state=a;
-		printf("\n ÇëÊäÈë¿Í»§ĞÕÃû:");
+		printf("\n è¯·è¾“å…¥å®¢æˆ·å§“å:");
 		scanf("%s",&customs[i].name);
-		printf("\n ÇëÊäÈë¿Í»§ÒµÎñºÏÍ¬±àºÅ:");
+		printf("\n è¯·è¾“å…¥å®¢æˆ·ä¸šåŠ¡åˆåŒç¼–å·:");
 		scanf("%d",&customs[i].num);
-		printf("\n ÇëÊäÈë±¸×¢:");
+		printf("\n è¯·è¾“å…¥å¤‡æ³¨:");
 		scanf("%s",&customs[i].ps);
-		printf("\n ÇëÊäÈë¶ÔÓ¦µÄ½ğ¶î£¨¹º·¿»ò×â·¿¼Û¸ñ£©:");
+		printf("\n è¯·è¾“å…¥å¯¹åº”çš„é‡‘é¢ï¼ˆè´­æˆ¿æˆ–ç§Ÿæˆ¿ä»·æ ¼ï¼‰:");
 		scanf("%ld",&d);
 		customs[i].price=d;
 	}
@@ -228,13 +228,13 @@ void listcustom(){
 		strcpy(bb,customs[j].ps);strcpy(customs[j].ps,customs[j+1].ps);strcpy(customs[j+1].ps,bb);
 	}
 	for(j=0;j<size;j++){
-		printf(" ºÏÍ¬±àºÅ£º%d",customs[j].num);
-		printf(" ½ğ¶î:%ld ",customs[j].price);
-		printf(" ĞÕÃû: \n");puts(customs[j].name);
-		printf(" ±¸×¢: ");puts(customs[j].ps);
-		if(customs[j].state==1) printf(" ×´Ì¬: Ï£Íû¹º·¿\n");
-		if(customs[j].state==2) printf(" ×´Ì¬: Ï£Íû×â·¿\n");
-		if(buildings[j].state==3) printf(" ×´Ì¬: ÒÑ¹º·¿\n");
-		if(buildings[j].state==4) printf(" ×´Ì¬: ÒÑ×â·¿\n");
+		printf(" åˆåŒç¼–å·ï¼š%d",customs[j].num);
+		printf(" é‡‘é¢:%ld ",customs[j].price);
+		printf(" å§“å: \n");puts(customs[j].name);
+		printf(" å¤‡æ³¨: ");puts(customs[j].ps);
+		if(customs[j].state==1) printf(" çŠ¶æ€: å¸Œæœ›è´­æˆ¿\n");
+		if(customs[j].state==2) printf(" çŠ¶æ€: å¸Œæœ›ç§Ÿæˆ¿\n");
+		if(buildings[j].state==3) printf(" çŠ¶æ€: å·²è´­æˆ¿\n");
+		if(buildings[j].state==4) printf(" çŠ¶æ€: å·²ç§Ÿæˆ¿\n");
 	}
 }
