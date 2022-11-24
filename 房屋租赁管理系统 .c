@@ -232,9 +232,9 @@ void listcustom(){
 		printf(" 金额:%ld ",customs[j].price);
 		printf(" 姓名: \n");puts(customs[j].name);
 		printf(" 备注: ");puts(customs[j].ps);
-		if(customs[j].state==1) printf(" 状态: 希望购房\n");
-		if(customs[j].state==2) printf(" 状态: 希望租房\n");
-		if(buildings[j].state==3) printf(" 状态: 已购房\n");
-		if(buildings[j].state==4) printf(" 状态: 已租房\n");
+		if(customs[j].state==1) printf(" 状态: 希望购房 \n");
+		if(customs[j].state==2) printf(" 状态: 希望租房 \n");
+		if(buildings[j].state==3) printf(" 状态: 已购房 \n");
+		if(buildings[j].state==4) printf(" 状态: 已租房 \n");
 	}
 }
