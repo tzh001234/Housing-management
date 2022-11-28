@@ -3,7 +3,6 @@
 #include<string.h>
 #include<ctype.h>
 #include<conio.h>
-
 #define size 3
 
 struct building{          //房屋信息 
