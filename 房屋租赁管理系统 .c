@@ -3,7 +3,7 @@
 #include<string.h>
 #include<ctype.h>
 #include<conio.h>
-#define size 2
+#define size 3
 
 struct building{          //房屋信息 
 	int state; 	  //状态：出售，出租，已出售或已出租
